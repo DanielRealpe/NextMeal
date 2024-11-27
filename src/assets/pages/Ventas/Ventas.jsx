@@ -1,9 +1,27 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import './Ventas.css';
 import { columns, data, actions } from './constantes';
 import CustomTable from '../../../components/Table';
 
 function Ventas() {
+    const [searchTerm, setSearchTerm] = useState('');
+    const [datas, setDatas] = useState(data);
+
+    const Search = () => {
+        setDatas(data.filter((item) => item.id.toString().includes(searchTerm) || item.empleado.toLowerCase().includes(searchTerm.toLowerCase()) || item.cliente.toLowerCase().includes(searchTerm.toLowerCase()) || item.estado.toLowerCase().includes(searchTerm.toLowerCase())));
+        console.log(datas);
+    }
+
+    useEffect(() => {
+        if(searchTerm != '') {
+            return;
+        }
+        if(searchTerm == '') {
+            setDatas(data);
+        }
+    }, [searchTerm]);
+
     return (
         <div className="ventas-container">
             <div className="ventas-header">
@@ -15,8 +33,9 @@ function Ventas() {
                         type="text"
                         placeholder="Buscar..."
                         className="search-input"
+                        onChange={(e) => setSearchTerm(e.target.value)}
                     />
-                    <button className="btn btn-primary">Buscar</button>
+                    <button onClick={Search} className="btn btn-primary">Buscar</button>
                 </div>
                 <div className="ventas-actions">
                     <button className="btn btn-primary">Agregar</button>
@@ -25,7 +44,7 @@ function Ventas() {
             </div>
             <CustomTable
                 columns={columns}
-                data={data}
+                data={datas}
                 actions={actions}
                 onRowClick={(row) => console.log("Row clicked:", row)}
             />

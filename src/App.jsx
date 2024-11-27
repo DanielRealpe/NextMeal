@@ -8,6 +8,7 @@ import Compras from './assets/pages/Compras/Compras';
 import Produccion from './assets/pages/Produccion/Produccion';
 import Usuarios from './assets/pages/Usuarios/Users';
 import Configuracion from './assets/pages/Configuracion/Config';
+import Cliente from './assets/pages/Cliente/Cliente';
 
 export function App() {
   return (
@@ -16,6 +17,7 @@ export function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Dashboard />} />
           <Route path="ventas" element={<Ventas />} />
+          <Route path="venta/clientes" element={<Cliente />} />
           <Route path="compras" element={<Compras />} />
           <Route path="produccion" element={<Produccion />} />
           <Route path="usuarios" element={<Usuarios />} />

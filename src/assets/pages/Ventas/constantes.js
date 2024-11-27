@@ -9,8 +9,8 @@ export const columns = [
 export const data = [
     { id: 101, fecha: '2023-09-01', empleado: 'Carlos Darwin Alzate', cliente: 'Ruben Dario Llanes', estado: 'Pagada' },
     { id: 102, fecha: '2023-09-01', empleado: 'John Doe', cliente: 'John Doe', estado: 'Pagada' },
-    { id: 102, fecha: '2023-09-01', empleado: 'John Doe', cliente: 'John Doe', estado: 'Pagada' },
-    { id: 102, fecha: '2023-09-01', empleado: 'John Doe', cliente: 'John Doe', estado: 'Pagada' },
+    { id: 103, fecha: '2023-09-01', empleado: 'John Doe', cliente: 'John Doe', estado: 'Pagada' },
+    { id: 104, fecha: '2023-09-01', empleado: 'John Doe', cliente: 'John Doe', estado: 'Pagada' },
 ]
 export const actions = [
     {

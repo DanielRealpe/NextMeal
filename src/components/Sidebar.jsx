@@ -17,9 +17,9 @@ export function Sidebar() {
 
     const ventasSubOptions = [
         { name: "G. Ventas", path: "/ventas" },
-        { name: "Pedidos", path: "/ventas/pedidos" },
-        { name: "Clientes", path: "/ventas/clientes" },
-        { name: "Carrito", path: "/ventas/carrito" },
+        { name: "Pedidos", path: "/venta/pedidos" },
+        { name: "Clientes", path: "/venta/clientes" },
+        { name: "Carrito", path: "/venta/carrito" },
     ];
 
     const toggleVentas = () => setVentasOpen(!ventasOpen);
