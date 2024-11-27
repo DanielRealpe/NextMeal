@@ -1,0 +1,164 @@
+/* Sidebar.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.sidebar {
+    position: fixed; /* Cambiado a fixed para que no haga scroll */
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    background: linear-gradient(135deg, #C55400, #9C3F00);
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
+    overflow-y: auto; /* Permite scroll interno si el contenido es muy largo */
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    padding: 25px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.header-img-container {
+    width: 100px; /* Incremento de tamaño */
+    height: 100px; /* Hacerlo completamente redondo */
+    border-radius: 50%; /* Forma circular */
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo semi-transparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px; /* Centrado y espacio inferior */
+    border: 3px solid rgba(255, 165, 0, 0.3); /* Borde sutil */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: all 0.3s ease; /* Transición suave para efectos hover */
+}
+
+.header-img-container img {
+    width: 100%; /* Reducir el tamaño de la imagen dentro del contenedor */
+    height: 100%;
+    border-radius: 50%; /* Forma circular */
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.header-img-container:hover {
+    transform: scale(1.05); /* Efecto de ligero zoom al pasar el mouse */
+    border-color: rgba(255, 165, 0, 0.5);
+}
+.header-img-container:hover img {
+    transform: rotate(5deg); /* Pequeña rotación en hover */
+}
+
+.header-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #FFa500;
+    letter-spacing: -0.5px;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.menu li {
+    margin-bottom: 5px;
+}
+
+.menu a {
+    display: block;
+    padding: 7px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    margin: 0 10px;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+.menu a:hover {
+    background-color: rgba(255, 165, 0, 0.2);
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+.menu a.active {
+    background-color: #FFFFFF;
+    color: #C55400;
+    font-weight: 600;
+    opacity: 1;
+    box-shadow: 0 4px 10px rgba(197, 84, 0, 0.3);
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding: 15px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 300;
+}
+
+/* Compensación para el contenido principal */
+body {
+    padding-left: 260px;
+}
+
+.submenu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.submenu-open {
+    max-height: 200px; /* Ajusta según el número de opciones */
+}
+
+.submenu li {
+    margin-bottom: 5px;
+    padding-left: 20px; /* Desplaza el submenú */
+}
+
+.submenu a {
+    display: block;
+    padding: 7px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    opacity: 0.8;
+}
+
+.submenu a:hover {
+    background-color: rgba(255, 165, 0, 0.2);
+    opacity: 1;
+}
+
+.ventas-toggle {
+    cursor: pointer;
+    padding: 7px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    margin: 0 10px;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+.ventas-toggle:hover {
+    background-color: rgba(255, 165, 0, 0.2);
+    opacity: 1;
+}
