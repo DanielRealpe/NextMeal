@@ -1,0 +1,132 @@
+/* Estilos para el modal de react-bootstrap */
+.modal-wrapper.modal {
+    font-family: 'Poppins', sans-serif;
+}
+
+.modal-wrapper .modal-content {
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: none;
+    animation: customModalFadeIn 0.3s ease-out;
+}
+
+.modal-wrapper .modal-header {
+    background-color: #FF7F32;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.modal-wrapper .modal-title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.modal-wrapper .btn-close {
+    color: white;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.modal-wrapper .btn-close:hover {
+    opacity: 0.75;
+}
+
+.modal-wrapper .modal-body {
+    padding: 20px;
+}
+
+/* Estilos para el formulario */
+.modal-wrapper .form-label {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.modal-wrapper .form-control {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.modal-wrapper .form-control:focus {
+    border-color: #FF5722;
+    box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.1);
+    outline: none;
+}
+
+.modal-wrapper .form-group {
+    margin-bottom: 1rem;
+}
+
+/* Estilos para los botones */
+.modal-wrapper .btn {
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.modal-wrapper .btn-primary {
+    background-color: #FF5722;
+    border-color: #FF5722;
+    color: white;
+}
+
+.modal-wrapper .btn-secondary {
+    background-color: rgba(255, 87, 34, 0.1);
+    border: none;
+    color: #FF5722;
+}
+
+.modal-wrapper .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-wrapper .btn-primary:hover {
+    background-color: #F4511E;
+    border-color: #F4511E;
+}
+
+.modal-wrapper .btn-secondary:hover {
+    background-color: rgba(255, 87, 34, 0.15);
+    color: #FF5722;
+}
+
+/* Animaciones */
+@keyframes customModalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+    .modal-wrapper .modal-content {
+        margin: 10px;
+    }
+
+    .modal-wrapper .modal-header {
+        padding: 12px 15px;
+    }
+
+    .modal-wrapper .modal-title {
+        font-size: 1.3rem;
+    }
+
+    .modal-wrapper .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Table } from "react-bootstrap";
+import { Table, Form } from "react-bootstrap";
 import "../styles/CustomTable.css";
 
 const CustomTable = ({
@@ -12,6 +12,7 @@ const CustomTable = ({
     hover = true,
     responsive = true,
     onRowClick,
+    onStateChange,
 }) => {
     return (
         <div className={`table-container ${responsive ? "table-responsive" : ""}`}>
@@ -36,7 +37,17 @@ const CustomTable = ({
                             >
                                 {columns.map((column) => (
                                     <td key={column.key}>
-                                        {column.render ? column.render(row[column.key], row) : row[column.key]}
+                                        {column.key === 'estado' ? (
+                                            <Form.Check
+                                                type="switch"
+                                                id={`estado-switch-${row.documento}`}
+                                                checked={row[column.key] === 'Activo'}
+                                                onChange={() => onStateChange(row.documento, row[column.key] === 'Activo' ? 'Inactivo' : 'Activo')}
+                                                label={row[column.key]}
+                                            />
+                                        ) : (
+                                            column.render ? column.render(row[column.key], row) : row[column.key]
+                                        )}
                                     </td>
                                 ))}
                                 {actions && actions.length > 0 && (

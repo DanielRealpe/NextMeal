@@ -5,8 +5,8 @@ import { columns, data, actions } from './constantes';
 import CustomTable from '../../../components/Table';
 
 function Ventas() {
-    const [searchTerm, setSearchTerm] = useState('');
     const [datas, setDatas] = useState(data);
+    const [searchTerm, setSearchTerm] = useState('');
 
     const Search = () => {
         setDatas(data.filter((item) => item.id.toString().includes(searchTerm) || item.empleado.toLowerCase().includes(searchTerm.toLowerCase()) || item.cliente.toLowerCase().includes(searchTerm.toLowerCase()) || item.estado.toLowerCase().includes(searchTerm.toLowerCase())));

@@ -1,4 +1,4 @@
-/* CustomTable.css */
+/* Aseguramos que los estilos sean más específicos que los de react-bootstrap */
 .table-container {
     background-color: #fff;
     border-radius: 12px;
@@ -6,64 +6,74 @@
     overflow: hidden;
 }
 
-.table {
+/* Hacemos los selectores más específicos */
+.table-container .table {
     margin-bottom: 0;
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
 }
 
-.table thead {
+/* Especificidad aumentada para el encabezado */
+.table-container .table>thead {
     background-color: #FF7F32;
     color: white;
 }
 
-.table thead th {
+.table-container .table>thead>tr>th {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     padding: 7px;
-    border: none;
+    border: none !important;
+    /* Forzamos que no haya bordes */
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    vertical-align: middle;
+    text-align: center;
+    color: #fff;
 }
 
-.table tbody tr {
+/* Especificidad aumentada para el cuerpo */
+.table-container .table>tbody>tr {
     transition: background-color 0.3s ease;
 }
 
-.table tbody tr:nth-child(even) {
+.table-container .table>tbody>tr:nth-child(even) {
     background-color: rgba(255, 127, 50, 0.05);
 }
 
-.table tbody tr:hover {
+.table-container .table>tbody>tr:hover {
     background-color: rgba(255, 127, 50, 0.1);
 }
 
-.table tbody td {
+.table-container .table>tbody>tr>td {
     font-family: 'Poppins', sans-serif;
-    padding: 7px; /* 7 de Cristiano Ronaldo */
+    padding: 7px;
     vertical-align: middle;
-    text-align: center; /* Centra horizontalmente */
+    text-align: center;
     color: #333;
+    border: none !important;
+    /* Forzamos que no haya bordes */
 }
 
-.clickable-row {
+/* Estilos para filas clickeables */
+.table-container .table>tbody>tr.clickable-row {
     cursor: pointer;
 }
 
-.clickable-row:hover {
+.table-container .table>tbody>tr.clickable-row:hover {
     background-color: rgba(255, 127, 50, 0.15) !important;
 }
 
-/* Estilo para filas sin datos */
-.table tbody .text-center {
+/* Mensaje de no datos */
+.table-container .table>tbody>tr>td.text-center {
     color: #888;
     font-style: italic;
     padding: 20px;
 }
 
-/* Estilos de botones de acciones */
-.table .btn {
+/* Botones de acciones */
+.table-container .table .btn {
     margin-right: 5px;
     margin-bottom: 5px;
     padding: 6px 12px;
@@ -73,39 +83,47 @@
     transition: all 0.3s ease;
 }
 
-.table .btn-primary {
+.table-container .table .btn-primary {
     background-color: #FF5722;
     border-color: #FF5722;
     color: white;
 }
 
-.table .btn-secondary {
+.table-container .table .btn-secondary {
     background-color: rgba(255, 87, 34, 0.1);
     border-color: transparent;
     color: #FF5722;
 }
 
-.table .btn-primary:hover {
+.table-container .table .btn-primary:hover {
     background-color: #C55400;
     border-color: #C55400;
 }
 
-.table .btn-secondary:hover {
+.table-container .table .btn-secondary:hover {
     background-color: rgba(255, 87, 34, 0.2);
 }
 
-/* Responsive adjustments */
-.table-responsive {
-    overflow-x: auto;
-}
-
+/* Ajustes responsive */
 @media (max-width: 768px) {
-    .table thead {
+    .table-container .table>thead>tr>th {
         font-size: 0.9rem;
     }
 
-    .table tbody td {
+    .table-container .table>tbody>tr>td {
         font-size: 0.85rem;
         padding: 10px;
     }
+}
+
+/* Aseguramos que el scroll horizontal funcione correctamente */
+.table-container.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Eliminamos bordes por defecto de react-bootstrap */
+.table-container .table> :not(caption)>*>* {
+    border: none;
+    background-color: transparent;
 }
