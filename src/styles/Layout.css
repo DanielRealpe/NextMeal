@@ -1,7 +1,8 @@
 .layout-container {
     display: flex;
-    height: 100vh;
     width: 100%;
+
+
 }
 
 .main-content {
@@ -10,4 +11,11 @@
     padding: 20px;
     background-color: #f4f4f4;
     /* margin-left: 260px; Coincide con el ancho del sidebar */
+}
+
+.content-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
 }
