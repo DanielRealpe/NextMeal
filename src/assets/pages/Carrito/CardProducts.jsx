@@ -3,8 +3,9 @@ import { Button, IconButton } from '@mui/material';
 import { Card, CardContent, CardMedia, CardHeader, CardActionArea, Collapse, FormControlLabel, Checkbox } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-
+import { useCart } from "../../hooks/useCart";
 function CardProducts({ product }) {
+    const { addToCart } = useCart();
     const [expanded, setExpanded] = useState(false);
     const [aditions, setAditions] = useState({
         queso: 0,
@@ -46,6 +47,36 @@ function CardProducts({ product }) {
         });
     };
 
+    const handleAddToCart = () => {
+        const selectedCatsup = Object.keys(catsup).filter((key) => catsup[key]);
+
+        const cartItem = {
+            name: product.name,
+            description: product.description,
+            image: product.image,
+            price: product.price,
+            aditions: {
+                queso: aditions.queso,
+                tocineta: aditions.tocineta,
+            },
+            catsup: selectedCatsup,
+        };
+
+        addToCart(cartItem);
+
+        setAditions({
+            queso: 0,
+            tocineta: 0,
+            salsas: false,
+        });
+        setCatsup({
+            Ketchup: false,
+            Mayonesa: false,
+            Mostaza: false,
+        });
+        console.log(cartItem);
+    }
+
     return (
         <div>
             <Card >
@@ -56,7 +87,7 @@ function CardProducts({ product }) {
                         <CardMedia
                             component="img"
                             height="140"
-                            image="https://assets.unileversolutions.com/recipes-v2/218401.jpg"
+                            image={product.image}
                         />
                     </CardContent>
                 </CardActionArea >
@@ -97,7 +128,7 @@ function CardProducts({ product }) {
                             />
                         ))}
                         <div className="flex text-center justify-center">
-                            <Button variant="contained" color="primary">Comprar</Button>
+                            <Button variant="contained" color="primary" onClick={handleAddToCart}>Comprar</Button>
                         </div>
                     </CardContent>
                 </Collapse>
