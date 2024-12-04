@@ -50,6 +50,27 @@ export const data = [
     },
 ]
 
+export const data3000 = [
+    {
+        nombre: 'Carlos Arbey', apellido: 'Rua Perez', tipoDocumento: 'CC', documento: '1017198864', telefono: '3064557940', direccion: 'Calle siempre viva', estado: 'Activo', contrasena: '123456789aA',
+        products: [{ productos: 'Salchipapa boruto', adicion: ['Queso', 'Cheddar', 'Mayonesa'], price: '36000', cantidad: '2', total: '72000' },
+        { productos: 'Coca Cola', adicion: [], price: '3500', cantidad: '2', total: '7000' },
+        { productos: 'Chuzo Sencillo', adicion: [], price: '10000', cantidad: '1', total: '10000' },]
+    },
+    {
+        nombre: 'Carmen Yiset', apellido: 'Perez Ruiz', tipoDocumento: 'CC', documento: '1040789678', telefono: '3056789854', direccion: 'Calle del pecao', estado: 'Activo', contrasena: '123456789aA',
+        products: [{ productos: 'Salchipapa boruto', adicion: ['Queso', 'Cheddar', 'Mayonesa'], price: '36000', cantidad: '2', total: '72000' },
+        { productos: 'Coca Cola', adicion: [], price: '3500', cantidad: '2', total: '7000' },
+        { productos: 'Chuzo Sencillo', adicion: [], price: '10000', cantidad: '1', total: '10000' },]
+    },
+    {
+        nombre: 'Ruben Dario', apellido: 'Llanes Silva', tipoDocumento: 'CC', documento: '96546765', telefono: '123456789', direccion: '123 Main St', estado: 'Activo', contrasena: '123456789aA',
+        products: [{ productos: 'Salchipapa boruto', adicion: ['Queso', 'Cheddar', 'Mayonesa'], price: '36000', cantidad: '2', total: '72000' },
+        { productos: 'Coca Cola', adicion: [], price: '3500', cantidad: '2', total: '7000' },
+        { productos: 'Chuzo Sencillo', adicion: [], price: '10000', cantidad: '1', total: '10000' },]
+    },
+]
+
 export const acionecitas = (handleEdit, handleDelete, handleView) => {
     const actions = [
         {

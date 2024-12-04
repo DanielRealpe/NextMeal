@@ -12,6 +12,7 @@ import Usuarios from './assets/pages/Usuarios/Users';
 import Configuracion from './assets/pages/Configuracion/Config';
 import Cliente from './assets/pages/Cliente/Cliente';
 import Carrito from './assets/pages/Carrito/Carrito';
+import Pedidos from './assets/pages/Pedidos/Pedidos';
 
 export function App() {
   return (
@@ -20,6 +21,7 @@ export function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Dashboard />} />
             <Route path="ventas" element={<Ventas />} />
+          <Route path="venta/pedidos" element={<Pedidos />} />
             <Route path="venta/clientes" element={<Cliente />} />
             <Route path="venta/carrito" element={<Carrito />} />
             <Route path="compras" element={<Compras />} />

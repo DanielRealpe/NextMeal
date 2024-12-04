@@ -1,4 +1,4 @@
-/* Ventas.css */
+/* Aumentamos la especificidad de los selectores */
 .ventas-container {
     display: flex;
     flex-direction: column;
@@ -7,14 +7,15 @@
     background-color: #f4f4f4;
 }
 
-.ventas-header {
+/* Header styles */
+.ventas-container .ventas-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.ventas-title {
+.ventas-container .ventas-title {
     font-family: 'Poppins', sans-serif;
     font-size: 1.8rem;
     color: #333;
@@ -22,79 +23,202 @@
     margin: 0;
 }
 
-.ventas-filters-container {
+/* Filters container */
+.ventas-container .ventas-filters-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
+    border-radius: 12px;
 }
 
-.ventas-filters {
+.ventas-container .ventas-filters {
     display: flex;
     align-items: center;
     gap: 10px;
     flex-grow: 1;
 }
 
-.search-input {
+/* Search input específico */
+.ventas-container .search-input {
     flex-grow: 1;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 6px;
     font-family: 'Poppins', sans-serif;
-    transition: border-color 0.3s ease;
-    width: 300px; /* Ancho fijo en lugar de flex-grow */
-    max-width: 30%; /* Limitar su expansión */
+    transition: all 0.3s ease;
+    width: 300px;
+    max-width: 30%;
+    background-color: #fff;
+    height: 38px;
 }
 
-.search-input:focus {
+.ventas-container .search-input:focus {
     outline: none;
     border-color: #FF5722;
+    box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.1);
 }
 
-.ventas-actions {
+/* Botones y acciones */
+.ventas-container .ventas-actions {
     display: flex;
     gap: 10px;
 }
 
-.btn {
+/* Estilos específicos para botones */
+.ventas-container .ventas-btn {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     padding: 10px 15px;
     border-radius: 6px;
     transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
 }
 
-.btn-primary {
+.ventas-container .btn-primary {
     background-color: #FF5722;
     color: white;
     border: none;
 }
 
-.btn-secondary {
+.ventas-container .btn-secondary {
     background-color: rgba(255, 87, 34, 0.1);
     color: #FF5722;
     border: none;
 }
 
-.btn:hover {
+.ventas-container .ventas-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive adjustments */
+.ventas-container .btn-primary:hover {
+    background-color: #F4511E;
+}
+
+.ventas-container .btn-secondary:hover {
+    background-color: rgba(255, 87, 34, 0.15);
+}
+
+/* Ajustes responsive */
 @media (max-width: 768px) {
-    .ventas-filters-container {
+    .ventas-container .ventas-filters-container {
         flex-direction: column;
         gap: 15px;
     }
 
-    .ventas-filters {
+    .ventas-container .ventas-filters {
         width: 100%;
     }
 
-    .ventas-actions {
+    .ventas-container .search-input {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .ventas-container .ventas-actions {
         width: 100%;
         justify-content: space-between;
+    }
+
+    .ventas-container .ventas-btn {
+        width: calc(50% - 5px);
+    }
+}
+
+/* Estilos para el switch */
+.ventas-container .form-switch {
+    padding-left: 2.5em;
+}
+
+.ventas-container .form-switch .form-check-input {
+    width: 2em;
+    margin-left: -2.5em;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
+    background-position: left center;
+    border-radius: 2em;
+    transition: background-position .15s ease-in-out;
+}
+
+.ventas-container .form-switch .form-check-input:checked {
+    background-position: right center;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+}
+
+.ventas-container .form-switch .form-check-input:focus {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%2386b7fe'/%3e%3c/svg%3e");
+}
+
+/* Estilos para el paginador */
+.ventas-container .pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.ventas-container .pagination-container li {
+    margin: 0 5px;
+}
+
+.ventas-container .pagination-container li a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.ventas-container .pagination-container li a:hover {
+    background-color: rgba(255, 87, 34, 0.1);
+    color: #FF5722;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.ventas-container .pagination-container li.active a {
+    background-color: #FF5722;
+    color: white;
+    border-color: #FF5722;
+}
+
+.ventas-container .pagination-container li.disabled a {
+    color: #ccc;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.ventas-container .pagination-container li:first-child a,
+.ventas-container .pagination-container li:last-child a {
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .ventas-container .pagination-container {
+        flex-wrap: wrap;
+    }
+
+    .ventas-container .pagination-container li {
+        margin: 5px;
+    }
+
+    .ventas-container .pagination-container li a {
+        padding: 6px 10px;
+        min-width: 30px;
     }
 }
