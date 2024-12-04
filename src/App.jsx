@@ -15,21 +15,22 @@ import Carrito from './assets/pages/Carrito/Carrito';
 
 export function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Dashboard />} />
-          <Route path="ventas" element={<Ventas />} />
-          <Route path="venta/clientes" element={<Cliente />} />
-          <Route path="venta/carrito" element={<Carrito />} />
-          <Route path="compras" element={<Compras />} />
-          <Route path="produccion" element={<Produccion />} />
-          <Route path="usuarios" element={<Usuarios />} />
-          <Route path="configuracion" element={<Configuracion />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Route>
-      </Routes>
-    </Router>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="ventas" element={<Ventas />} />
+            <Route path="venta/clientes" element={<Cliente />} />
+            <Route path="venta/carrito" element={<Carrito />} />
+            <Route path="compras" element={<Compras />} />
+            <Route path="produccion" element={<Produccion />} />
+            <Route path="usuarios" element={<Usuarios />} />
+            <Route path="configuracion" element={<Configuracion />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Route>
+        </Routes>
+      </Router>
+
   );
 }
 

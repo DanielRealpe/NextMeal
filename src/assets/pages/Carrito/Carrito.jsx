@@ -11,22 +11,22 @@ const products = [
     {
         id: 2,
         name: "Perro Caliente",
-        description: "Perro",
-        image: "https://assets.unileversolutions.com/recipes-v2/218401.jpg",
+        description: "Perro Caliente",
+        image: "https://assets.unileversolutions.com/recipes-v2/218408.jpg",
         price: 8000,
     },
     {
         id: 3,
         name: "Papas",
-        description: "Papas",
-        image: "https://assets.unileversolutions.com/recipes-v2/218401.jpg",
+        description: "Papas con queso",
+        image: "https://assets.unileversolutions.com/recipes-v2/218409.jpg",
         price: 5000,
     },
     {
         id: 4,
         name: "Chuzo",
-        description: "Gaseosa",
-        image: "https://assets.unileversolutions.com/recipes-v2/218401.jpg",
+        description: "Carne de res con verduras",
+        image: "https://assets.unileversolutions.com/recipes-v2/218405.jpg",
         price: 3000,
     },
 
