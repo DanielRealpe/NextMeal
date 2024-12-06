@@ -6,7 +6,7 @@ import PaymentModal from './ModalPago';
 import Swal from 'sweetalert2';
 
 function Ventas() {
-    const [payments, setPayments] = useState([]);
+    const [payments, setPayments] = useState(data);
     const [showPaymentModal, setShowPaymentModal] = useState(false);
     const [editPayment, setEditPayment] = useState(null);
     const [datas, setDatas] = useState(data);
@@ -23,14 +23,14 @@ function Ventas() {
 
     const handleSavePayment = (paymentData, isEditing) => {
         if (isEditing) {
-            setPayments(prevPayments => 
-                prevPayments.map(payment => 
+            setDatas(prevdata => 
+                prevdata.map(payment => 
                     payment.id === paymentData.id ? paymentData : payment
                 )
             );
             Swal.fire('Éxito', 'Pago actualizado correctamente', 'success');
         } else {
-            setPayments(prevPayments => [...prevPayments, paymentData]);
+            setDatas(prevdata => [...prevdata, paymentData]);
             Swal.fire('Éxito', 'Pago registrado correctamente', 'success');
         }
         setShowPaymentModal(false);
@@ -54,7 +54,7 @@ function Ventas() {
             cancelButtonText: 'Cancelar'
         }).then((result) => {
             if (result.isConfirmed) {
-                setPayments(prevPayments => 
+                setDatas(prevPayments => 
                     prevPayments.filter(p => p.id !== payment.id)
                 );
                 Swal.fire(
@@ -75,8 +75,8 @@ function Ventas() {
                     <p><strong>Pedido:</strong> ${payment.orderId}</p>
                     <p><strong>Cliente:</strong> ${payment.order.nombre}</p>
                     <p><strong>Monto:</strong> $${payment.amount.toLocaleString()}</p>
-                    <p><strong>Método:</strong> ${payment.paymentMethod}</p>
-                    <p><strong>Empleado:</strong> ${payment.employee}</p>
+                    <p><strong>Método:</strong> ${payment.metodoPago}</p>
+                    <p><strong>Empleado:</strong> ${payment.empleado}</p>
                     <p><strong>Fecha:</strong> ${new Date(payment.date).toLocaleString()}</p>
                     ${payment.details ? `<p><strong>Detalles:</strong> ${payment.details}</p>` : ''}
                 </div>
