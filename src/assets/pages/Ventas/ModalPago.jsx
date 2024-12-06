@@ -5,7 +5,7 @@ import { pedidos } from './constantes';
 
 const PaymentModal = ({ show, handleClose, onSave, editData }) => {
     const [selectedOrder, setSelectedOrder] = useState(null);
-    const [paymentMethod, setPaymentMethod] = useState();
+    const [paymentMethod, setPaymentMethod] = useState('');
     const [receipt, setReceipt] = useState(null);
     const [employee, setEmployee] = useState('');
     const [details, setDetails] = useState('');
@@ -16,8 +16,8 @@ const PaymentModal = ({ show, handleClose, onSave, editData }) => {
         if (show) {
             if (editData) {
                 setSelectedOrder(editData.order);   
-                setPaymentMethod(<option value="tarjeta">{editData.metodoPago}</option>);
-                console.log(editData.metodoPago);
+                setPaymentMethod(editData.metodoPago);
+                // console.log(editData.metodoPago);
                 setEmployee(editData.empleado);
                 setDetails(editData.details);
             } else {
@@ -67,7 +67,7 @@ const PaymentModal = ({ show, handleClose, onSave, editData }) => {
             orderId: selectedOrder.idPedidos,
             order: selectedOrder,
             paymentMethod,
-            employee,
+            empleado: employee,
             details,
             amount: selectedOrder.total,
             date: new Date().toISOString(),
@@ -180,6 +180,7 @@ const PaymentModal = ({ show, handleClose, onSave, editData }) => {
                                     value={paymentMethod}
                                     onChange={(e) => setPaymentMethod(e.target.value)}
                                 >
+                                    {paymentMethod !== '' ?? <option value={paymentMethod}>{paymentMethod}</option>}
                                     <option value="">Seleccione un método</option>
                                     <option value="efectivo">Efectivo</option>
                                     <option value="tarjeta">Tarjeta</option>
