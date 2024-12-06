@@ -5,7 +5,7 @@ import { pedidos } from './constantes';
 
 const PaymentModal = ({ show, handleClose, onSave, editData }) => {
     const [selectedOrder, setSelectedOrder] = useState(null);
-    const [paymentMethod, setPaymentMethod] = useState('');
+    const [paymentMethod, setPaymentMethod] = useState();
     const [receipt, setReceipt] = useState(null);
     const [employee, setEmployee] = useState('');
     const [details, setDetails] = useState('');
@@ -15,9 +15,10 @@ const PaymentModal = ({ show, handleClose, onSave, editData }) => {
     useEffect(() => {
         if (show) {
             if (editData) {
-                setSelectedOrder(editData.order);
-                setPaymentMethod(editData.paymentMethod);
-                setEmployee(editData.employee);
+                setSelectedOrder(editData.order);   
+                setPaymentMethod(<option value="tarjeta">{editData.metodoPago}</option>);
+                console.log(editData.metodoPago);
+                setEmployee(editData.empleado);
                 setDetails(editData.details);
             } else {
                 resetForm();

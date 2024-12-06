@@ -9,19 +9,23 @@ export const columns = [
 export const data = [
     {
         id: 101, fecha: '2023-09-01', empleado: 'Carlos Darwin Alzate', cliente: 'Ruben Dario Llanes', estadoVenta: 'Pagada',
-        pagos: [],
+        order: { idPedidos: 1, fecha: '2024-12-01', nombre: 'Ruben Dario Llanes Silva', clienteDocumento: '96546765', estadoPedidos: 'Pendiente', total: 260.0}, metodoPago: 'Efectivo',
+        details: 'Detalles venta 1',
     },
     {
-        id: 102, fecha: '2023-09-01', empleado: 'John Doe', cliente: 'John Doe', estadoVenta: 'Pagada',
-        pagos: [],
+        id: 102, fecha: '2023-09-01', empleado: 'Farid Díaz', cliente: 'John Doe', estadoVenta: 'Pagada',
+        order: { idPedidos: 2, fecha: '2024-12-01', nombre: 'John Doe', clienteDocumento: '96546765', estadoPedidos: 'Pendiente', total: 260.0}, metodoPago: 'Tarjeta',
+        details: 'Detalles venta 2',
     },
     {
-        id: 103, fecha: '2023-09-01', empleado: 'John Doe', cliente: 'John Doe', estadoVenta: 'Pagada',
-        pagos: [],
+        id: 103, fecha: '2023-09-01', empleado: 'James Rodriguez', cliente: 'John Doe', estadoVenta: 'Pagada',
+        order: { idPedidos: 3, fecha: '2024-12-01', nombre: 'John Doe', clienteDocumento: '96546765', estadoPedidos: 'Pendiente', total: 260.0}, metodoPago: 'Efectivo',
+        details: 'Detalles venta 3',
     },
     {
-        id: 104, fecha: '2023-09-01', empleado: 'John Doe', cliente: 'John Doe', estadoVenta: 'Pagada',
-        pagos: [],
+        id: 104, fecha: '2023-09-01', empleado: 'Radamel Falcao García', cliente: 'John Doe', estadoVenta: 'Pagada',
+        order: { idPedidos: 4, fecha: '2024-12-01', nombre: 'John Doe', clienteDocumento: '96546765', estadoPedidos: 'Pendiente', total: 260.0}, metodoPago: 'Efectivo',
+        details: 'Detalles venta 4',
     },
 ]
 export const actions = [
