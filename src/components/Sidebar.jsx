@@ -5,6 +5,7 @@ import Logo from "../assets/images/Logo Next Meal.png";
 
 export function Sidebar() {
     const [ventasOpen, setVentasOpen] = useState(false);
+    const [produccionOpen, setProduccionOpen] = useState(false);
 
     const menuOptions = [
         { name: "Dashboard", path: "/" },
@@ -21,8 +22,15 @@ export function Sidebar() {
         { name: "Clientes", path: "/venta/clientes" },
         { name: "Carrito", path: "/venta/carrito" },
     ];
+    const produccionSubOptions = [
+        { name: "Categorias", path: "/categorias" },
+        { name: "Productos", path: "/productos" },
+        { name: "Produccion", path: "/produccion" },
+    ];
 
-    const toggleVentas = () => setVentasOpen(!ventasOpen);
+    const toggleVentas = () => (
+        setProduccionOpen(false), setVentasOpen(!ventasOpen));
+    const toggleProduccion = () => (setProduccionOpen(!produccionOpen), setVentasOpen(false));
 
     return (
         <div className="sidebar">
@@ -64,13 +72,45 @@ export function Sidebar() {
                                     </ul>
                                 </>
                             ) : (
+                                option.name === "Produccion" ? (
+                                    <>
+                                        <div
+                                            className="menu-link produccion-toggle"
+                                            onClick={toggleProduccion}
+                                        >
+                                            {option.name}
+                                        </div>
+                                        <ul
+                                            className={`submenu ${
+                                                produccionOpen ? "submenu-open" : ""
+                                            }`}
+                                        >
+                                            {produccionSubOptions.map(
+                                                (subOption, subIndex) => (
+                                                    <li key={subIndex}>
+                                                        <NavLink
+                                                            to={subOption.path}
+                                                            className={({ isActive }) =>
+                                                                isActive
+                                                                    ? "active"
+                                                                    : ""
+                                                            }
+                                                        >
+                                                            {subOption.name}
+                                                        </NavLink>
+                                                    </li>
+                                                )
+                                            )}
+                                        </ul>
+                                    </>
+                                ) : (
                                 <NavLink
                                     to={option.path}
                                     className={({ isActive }) => (isActive ? "active" : "")}
                                 >
                                     {option.name}
                                 </NavLink>
-                            )}
+                            ))}
                         </li>
                     ))}
                 </ul>

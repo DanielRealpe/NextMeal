@@ -1,0 +1,155 @@
+/* Authentication Pages Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.recover-page,
+.register-page{
+    padding-left: 0 !important; /* Anula el padding izquierdo */
+}
+
+.recover-password-container,
+.register-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Background Effect */
+.recover-password-container::before,
+.register-container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        135deg, 
+        rgba(197, 84, 0, 0.1), 
+        rgba(197, 84, 0, 0.4)
+    ), url('https://c.wallhere.com/photos/bd/e7/french_fries_fried_slices-632793.jpg!d');
+    background-size: cover;
+    background-position: center;
+    filter: blur(2px);
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.recover-password-container form{
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+.register-container form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+.recover-password-container h2,
+.register-container h2 {
+    color: #C55400;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.recover-password-container p,
+.register-container p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.recover-password-container input,
+.register-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.recover-password-container input:focus,
+.register-container input:focus {
+    outline: none;
+    border-color: #C55400;
+    box-shadow: 0 0 0 2px rgba(197, 84, 0, 0.2);
+}
+
+.recover-password-container button,
+.register-container button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #C55400, #9C3F00);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.recover-password-container button:hover,
+.register-container button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(197, 84, 0, 0.3);
+}
+
+.recover-password-container button:last-child,
+.register-container button:last-child {
+    background: white;
+    color: #C55400;
+    border: 2px solid #C55400;
+}
+
+.recover-password-container button:last-child:hover,
+.register-container button:last-child:hover {
+    background-color: rgba(197, 84, 0, 0.05);
+}
+
+.recover-password-container .message,
+.register-container .message {
+    color: #C55400;
+    margin-top: 10px;
+}
+
+.info-message {
+    color: #C55400; /* Tono principal de tu diseño */
+    background-color: rgba(197, 84, 0, 0.1); /* Fondo tenue en armonía */
+    padding: 12px;
+    margin-top: 15px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif; /* Fuente consistente */
+    border: 1px solid rgba(197, 84, 0, 0.2); /* Borde tenue */
+    text-align: center;
+    backdrop-filter: blur(2px); /* Suavidad */
+    max-width: 400px; /* Para mantenerlo compacto */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .recover-password-container form,
+    .register-container form {
+        width: 90%;
+        padding: 20px;
+    }
+}

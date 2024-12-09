@@ -13,6 +13,7 @@ const CustomTable = ({
     responsive = true,
     onRowClick,
     onStateChange,
+    compact = false, // Nueva prop
 }) => {
     return (
         <div className={`table-container ${responsive ? "table-responsive" : ""}`}>
@@ -20,11 +21,11 @@ const CustomTable = ({
                 <thead>
                     <tr>
                         {columns.map((column) => (
-                            <th key={column.key} style={column.style}>
+                            <th key={column.key} style={{...column.style, ...(compact ? { width: '1%', whiteSpace: 'nowrap' } : {})}}>
                                 {column.header}
                             </th>
                         ))}
-                        {actions && actions.length > 0 && <th>Acciones</th>}
+                        {actions && actions.length > 0 && <th style={compact ? { width: '1%', whiteSpace: 'nowrap' } : {}}>Acciones</th>}
                     </tr>
                 </thead>
                 <tbody>
@@ -37,20 +38,23 @@ const CustomTable = ({
                             >
                                 {columns.map((column) => (
                                     <td key={column.key}>
-                                        {column.key === 'estado' ? (
-                                            <Form.Check
-                                                type="switch"
-                                                id={`estado-switch-${row.documento}`}
-                                                checked={row[column.key] === 'Activo'}
-                                                onChange={() => onStateChange(row.documento, row[column.key] === 'Activo' ? 'Inactivo' : 'Activo')}
-                                                label={row[column.key]}
-                                            />
+                                        {column.key === 'estado' && row.rol !== 'Admin'? (
+                                            <div className="d-flex align-items-center justify-content-center">
+                                                <Form.Check
+                                                    type="switch"
+                                                    id={`estado-switch-${row.documento}`}
+                                                    checked={row[column.key] === 'Activo'}
+                                                    onChange={() => onStateChange(row.documento || row.id, row[column.key] === 'Activo' ? 'Inactivo' : 'Activo')}
+                                                    className="me-2"
+                                                />
+                                                <span>{row[column.key]}</span>
+                                            </div>
                                         ) : (
                                             column.render ? column.render(row[column.key], row) : row[column.key]
                                         )}
                                     </td>
                                 ))}
-                                {actions && actions.length > 0 && (
+                                {actions && actions.length > 0 && row.rol !== 'Admin' && (
                                     <td>
                                         {actions.map((action, actionIndex) => (
                                             <button
@@ -104,6 +108,8 @@ CustomTable.propTypes = {
     hover: PropTypes.bool,
     responsive: PropTypes.bool,
     onRowClick: PropTypes.func, // Función que se ejecuta al hacer clic en una fila
+    compact: PropTypes.bool,
 };
 
 export default CustomTable;
+

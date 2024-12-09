@@ -127,3 +127,23 @@
     border: none;
     background-color: transparent;
 }
+
+/* Estilos para el switch y el texto de estado */
+.table-container .table .form-switch {
+    padding-left: 2.5em;
+}
+
+.table-container .table .form-check-input {
+    margin-top: 0.25em;
+    margin-left: -2.5em;
+}
+
+/* Ajuste para el modo compacto */
+.table-container .table.table-compact td,
+.table-container .table.table-compact th {
+    padding: 0.5rem;
+}
+
+.table-container .table.table-compact .d-flex {
+    gap: 0.5rem;
+}

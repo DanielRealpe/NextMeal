@@ -6,17 +6,26 @@ import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Menu from '@mui/material/Menu';
 import MediaCard from '../assets/pages/Carrito/utilities/CartItem';
+import ProfileMenu from '../assets/pages/Acceso/ProfileMenu';
 import Render from '../assets/pages/Carrito/utilities/Render';
+import { AccountCircle } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 export default function PrimarySearchAppBar() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+    const [profileAnchorEl, setProfileAnchorEl] = React.useState(null);
 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+    const isProfileMenuOpen = Boolean(profileAnchorEl);
 
     const handleProfileMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
+    };
+
+    const handleProfileOpen = (event) => {
+        setProfileAnchorEl(event.currentTarget);
     };
 
     const handleMobileMenuClose = () => {
@@ -26,7 +35,22 @@ export default function PrimarySearchAppBar() {
     const handleMenuClose = () => {
         setAnchorEl(null);
         handleMobileMenuClose();
+        setProfileAnchorEl(null);
     };
+
+    const handleLogout = () => {
+        localStorage.removeItem('isAuthenticated');
+        navigate('/login');
+        handleMenuClose();
+    };
+
+
+    const handleEditProfile = () => {
+        navigate('/editProfile');
+        handleMenuClose();
+    };
+
+    const navigate = useNavigate();
 
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
@@ -70,10 +94,27 @@ export default function PrimarySearchAppBar() {
                         >
                             <ShoppingCartIcon />
                         </IconButton>
+                        <IconButton
+                            size="large"
+                            edge="end"
+                            aria-label="account of current user"
+                            aria-haspopup="true"
+                            onClick={handleProfileOpen}
+                            color="inherit"
+                        >
+                            <AccountCircle />
+                        </IconButton>
                     </Box>
                 </Toolbar>
             </AppBar>
             {renderMenu}
+            <ProfileMenu
+                anchorEl={profileAnchorEl}
+                isOpen={isProfileMenuOpen}
+                onClose={handleMenuClose}
+                onEditProfile={handleEditProfile}
+                onLogout={handleLogout}
+            />
         </Box>
     );
 }

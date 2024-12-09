@@ -41,3 +41,43 @@
     color: #000000; /* Color del texto */
     user-select: none; /* Evita la selección del texto al hacer clic */
 }
+
+/* Navigation Bar Styles */
+.MuiAppBar-root {
+    background: linear-gradient(135deg, #C55400, #9C3F00) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.MuiToolbar-root {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px !important;
+}
+
+.MuiIconButton-root {
+    color: white !important;
+    transition: all 0.3s ease !important;
+}
+
+.MuiIconButton-root:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    transform: scale(1.1);
+}
+
+/* Profile Menu Styles */
+.MuiMenu-paper {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+.MuiMenuItem-root {
+    font-family: 'Poppins', sans-serif !important;
+    color: #C55400 !important;
+    transition: all 0.3s ease !important;
+}
+
+.MuiMenuItem-root:hover {
+    background-color: rgba(197, 84, 0, 0.1) !important;
+}

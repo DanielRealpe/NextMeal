@@ -1,0 +1,162 @@
+/* Login.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* En tu Login.css o en un nuevo archivo de estilos */
+.login-page {
+    padding-left: 0 !important; /* Anula el padding izquierdo */
+}
+
+/* Login Background Styles */
+.login-container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        135deg, 
+        rgba(197, 84, 0, 0.1), 
+        rgba(197, 84, 0, 0.4)
+    ), url('https://c.wallhere.com/photos/bd/e7/french_fries_fried_slices-632793.jpg!d');
+    background-size: cover;
+    background-position: center;
+    filter: blur(2px);
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #F5F5F5, #E0E0E0);
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    z-index: 1;
+    background: transparent;
+}
+
+.login-container form {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+}
+
+.login-container .header-img-container {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 25px;
+    background-color: rgba(197, 84, 0, 0.1);
+    border: 3px solid rgba(197, 84, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.login-container .header-img-container:hover {
+    transform: scale(1.05);
+    border-color: rgba(197, 84, 0, 0.5);
+}
+
+.login-container .header-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.login-container h2 {
+    color: #C55400;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.login-container input:focus {
+    outline: none;
+    border-color: #C55400;
+    box-shadow: 0 0 0 2px rgba(197, 84, 0, 0.2);
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #C55400, #9C3F00);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-container button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(197, 84, 0, 0.3);
+}
+
+.login-container button:nth-of-type(2) {
+    background: white;
+    color: #C55400;
+    border: 2px solid #C55400;
+}
+
+.login-container button:nth-of-type(2):hover {
+    background-color: rgba(197, 84, 0, 0.05);
+}
+
+.forgot-password {
+    color: #C55400;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #9C3F00;
+    text-decoration: underline;
+}
+
+.error-message {
+    color: #D8000C; /* Rojo suave */
+    background-color: rgba(216, 0, 12, 0.1); /* Fondo tenue */
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    font-size: 0.9rem; /* Tamaño pequeño pero legible */
+    font-family: 'Poppins', sans-serif; /* Fuente consistente */
+    border: 1px solid rgba(216, 0, 12, 0.2); /* Borde tenue */
+    text-align: center;
+    transition: all 0.3s ease; /* Efecto suave al aparecer */
+}
+
+.error-message:hover {
+    background-color: rgba(216, 0, 12, 0.2); /* Efecto visual al pasar */
+    border-color: rgba(216, 0, 12, 0.4);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .login-container form {
+        width: 90%;
+        padding: 20px;
+    }
+}

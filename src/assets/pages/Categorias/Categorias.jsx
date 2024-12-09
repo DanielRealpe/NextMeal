@@ -1,19 +1,17 @@
-import './Configuracion.css';
+import './Categorias.css';
 import { useState, useMemo, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
-import { data, columns, acionecitas, generateId } from './constantesConfiguracion';
+import { data, columns, acionecitas, generateId } from './contantesCategorias';
 import CustomTable from '../../../components/Table';
 import FormModal from './ModalForm';
-import ViewRolModal from './ModalDetalle';
 import Swal from 'sweetalert2';
 
-function Configuracion() {
+function Categorias() {
     const [searchTerm, setSearchTerm] = useState('');
     const [Data, setData] = useState(data);
     const [datos, setDatos] = useState(data);
     const [formData, setFormData] = useState({});
     const [showModal, setShowModal] = useState(false);
-    const [showDetail, setShowDetail] = useState(false);
     const [currentPage, setCurrentPage] = useState(0);
     const [curra, setCurra] = useState(0);
     const categoriesPerPage = 5;
@@ -22,7 +20,7 @@ function Configuracion() {
         setDatos(Data);
         setData(Data.filter((item) =>
             item.id.toString().includes(searchTerm.toLowerCase()) ||
-            item.rol.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            item.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
             item.descripcion.toLowerCase().includes(searchTerm.toLowerCase())
         ));
         setCurra(currentPage)
@@ -62,15 +60,11 @@ function Configuracion() {
     const handleOpenModal = () => {
         setShowModal(true);
     };
-    const handleOpenDetail = (row) => {
-        setFormData(row);
-        setShowDetail(true);
-    };
 
     const handleDelete = (row) => {
         Swal.fire({
-            title: 'Eliminar Rol',
-            text: '¿Estás seguro de eliminar el rol?',
+            title: 'Eliminar Categoría',
+            text: '¿Estás seguro de eliminar la categoría?',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -83,7 +77,7 @@ function Configuracion() {
                 setData(Data.filter((item) => item.id !== row.id));
                 Swal.fire(
                     'Eliminado!',
-                    'La rol ha sido eliminado.',
+                    'La categoría ha sido eliminada.',
                     'success'
                 );
             }
@@ -91,7 +85,6 @@ function Configuracion() {
     };
 
     const handleCloseModal = () => {
-        setShowDetail(false);
         setFormData({});
         setShowModal(false);
     };
@@ -103,14 +96,13 @@ function Configuracion() {
 
     const handleSubmit = (formData, initialData) => {
         if (Object.keys(initialData).length === 0) {
-            Swal.fire('Agregado', 'El rol ha sido agregada', 'success');
-            console.log(formData);
+            Swal.fire('Agregado', 'La categoría ha sido agregada', 'success');
             setData([...Data, { ...formData, id: generateId(Data) }]);
             handleCloseModal();
         } else {
             Swal.fire({
-                title: 'Actualizar Rol',
-                text: '¿Estás seguro de actualizar el rol?',
+                title: 'Actualizar Categoría',
+                text: '¿Estás seguro de actualizar la categoría?',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -121,18 +113,18 @@ function Configuracion() {
                 if (result.isConfirmed) {
                     setData(Data.map((item) => (item.id === formData.id ? formData : item)));
                     handleCloseModal();
-                    Swal.fire('Actualizado', 'El rol ha sido actualizada', 'success');
+                    Swal.fire('Actualizado', 'La categoría ha sido actualizada', 'success');
                 }
             })
         }
     };
 
-    const actions = acionecitas(handleEdit, handleDelete, handleOpenDetail);
+    const actions = acionecitas(handleEdit, handleDelete);
 
     const handleStateChange = (id, newState) => {
         Swal.fire({
             title: 'Cambiar Estado',
-            text: '¿Estás seguro de cambiar el estado del rol?',
+            text: '¿Estás seguro de cambiar el estado de la categoría?',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -146,30 +138,29 @@ function Configuracion() {
                         item.id === id ? { ...item, estado: newState } : item
                     )
                 );
-                Swal.fire('Estado cambiado!', 'El estado del rol ha sido cambiado.', 'success');
+                Swal.fire('Estado cambiado!', 'El estado de la categoría ha sido cambiado.', 'success');
             }
         });
     };
 
     return (
-        <div className="configuracion-container">
-            <div className="configuracion-header">
-                <h1 className="configuracion-title">Configuración de roles</h1>
+        <div className="categorias-container">
+            <div className="categorias-header">
+                <h1 className="categorias-title">Gestión de Categorias</h1>
             </div>
-            <div className="configuracion-filters-container">
-                <div className="configuracion-filters">
+            <div className="categorias-filters-container">
+                <div className="categorias-filters">
                     <input
                         type="text"
                         placeholder="Buscar..."
                         className="search-input"
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
-                    <button onClick={handleSearch} className="configuracion-btn btn-primary">Buscar</button>
+                    <button onClick={handleSearch} className="categorias-btn btn-primary">Buscar</button>
                 </div>
-                <div className="configuracion-actions">
-                    <button onClick={handleOpenModal} className="configuracion-btn btn-primary">Agregar</button>
+                <div className="categorias-actions">
+                    <button onClick={handleOpenModal} className="categorias-btn btn-primary">Agregar</button>
                     <FormModal show={showModal} handleClose={handleCloseModal} handleSubmit={handleSubmit} initialData={formData} />
-                    <ViewRolModal show={showDetail} handleClose={handleCloseModal} roleData={formData}/>
                 </div>
             </div>
             <CustomTable data={paginatedData} columns={columns} actions={actions} onStateChange={handleStateChange} />
@@ -188,4 +179,4 @@ function Configuracion() {
     );
 }
 
-export default Configuracion
+export default Categorias

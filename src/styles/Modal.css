@@ -130,3 +130,177 @@
         margin-bottom: 0.5rem;
     }
 }
+
+/* Styles for privileges table-like layout */
+.modal-wrapper .privileges-table {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.modal-wrapper .privileges-header {
+    display: flex;
+    background-color: rgba(255, 87, 34, 0.1);
+    border-bottom: 1px solid #ddd;
+}
+
+.modal-wrapper .privileges-row {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s ease;
+}
+
+.modal-wrapper .privileges-row:last-child {
+    border-bottom: none;
+}
+
+.modal-wrapper .privileges-row:hover {
+    background-color: rgba(255, 87, 34, 0.05);
+}
+
+.modal-wrapper .privileges-column {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #eee;
+}
+
+.modal-wrapper .privileges-column:last-child {
+    border-right: none;
+}
+
+.modal-wrapper .privileges-header .privileges-column {
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    justify-content: center;
+}
+
+.modal-wrapper .privileges-column .form-check {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.modal-wrapper .privileges-column .form-check-input {
+    margin-right: 10px;
+}
+
+.modal-wrapper .privilege-main-checkbox .form-check-label {
+    font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .modal-wrapper .privileges-table {
+        font-size: 0.9rem;
+    }
+    
+    .modal-wrapper .privileges-column {
+        padding: 8px;
+    }
+}
+
+/* Styles for Role Details Modal */
+.modal-wrapper .role-details-list {
+    font-family: 'Poppins', sans-serif;
+}
+
+.modal-wrapper .role-detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.modal-wrapper .role-detail-item:hover {
+    background-color: rgba(255, 87, 34, 0.05);
+}
+
+.modal-wrapper .detail-label {
+    font-weight: 600;
+    color: #333;
+    margin-right: 15px;
+    min-width: 120px;
+}
+
+.modal-wrapper .detail-value {
+    color: #666;
+    text-align: right;
+    flex-grow: 1;
+}
+
+.modal-wrapper .privileges-section {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.modal-wrapper .privileges-list {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.modal-wrapper .privilege-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-wrapper .privilege-item:last-child {
+    border-bottom: none;
+}
+
+.modal-wrapper .privilege-name {
+    font-weight: 500;
+    color: #333;
+}
+
+.modal-wrapper .privilege-actions {
+    display: flex;
+    align-items: center;
+}
+
+.modal-wrapper .badge {
+    margin-left: 5px;
+    padding: 4px 8px;
+    font-size: 0.7rem;
+    border-radius: 4px;
+}
+
+.modal-wrapper .badge-success {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+}
+
+.modal-wrapper .badge-secondary {
+    background-color: rgba(108, 117, 125, 0.1);
+    color: #6c757d;
+}
+
+.modal-wrapper .badge-info {
+    background-color: rgba(23, 162, 184, 0.1);
+    color: #17a2b8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .modal-wrapper .role-detail-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .modal-wrapper .detail-label {
+        margin-bottom: 5px;
+    }
+    
+    .modal-wrapper .detail-value {
+        text-align: left;
+        width: 100%;
+    }
+}

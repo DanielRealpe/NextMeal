@@ -1,0 +1,89 @@
+.edit-profile-page {
+    padding-left: 0 !important; /* Anula el padding izquierdo */
+}
+
+.edit-profile-container {
+    margin-left: 260px; /* Para compensar la barra lateral */
+    padding: 40px;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background-color: #F9F9F9; /* Fondo claro para destacar contenido */
+    min-height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaciado entre secciones */
+}
+
+.edit-profile-header {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #C55400; /* Naranja principal */
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.edit-profile-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.edit-profile-form label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.edit-profile-form input,
+.edit-profile-form select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.edit-profile-form input:focus,
+.edit-profile-form select:focus {
+    border-color: #C55400;
+    outline: none;
+    box-shadow: 0 0 5px rgba(197, 84, 0, 0.3);
+}
+
+.edit-profile-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+.edit-profile-actions button {
+    padding: 10px 20px !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 1rem !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.edit-profile-actions .save-button {
+    background-color: #C55400 !important;
+    color: #fff !important;
+}
+
+.edit-profile-actions .save-button:hover {
+    background-color: #9C3F00 !important;
+}
+
+.edit-profile-actions .cancel-button {
+    background-color: #ddd !important;
+    color: #333 !important;
+}
+
+.edit-profile-actions .cancel-button:hover {
+    background-color: #bbb !important;
+}
