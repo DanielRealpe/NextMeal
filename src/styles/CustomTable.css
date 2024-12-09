@@ -147,3 +147,19 @@
 .table-container .table.table-compact .d-flex {
     gap: 0.5rem;
 }
+
+/* Estilo base para imágenes dentro de la tabla */
+.table-container img {
+    width: 80px; /* Ajusta el tamaño según lo necesario */
+    height: 80px;
+    object-fit: cover; /* Asegura que la imagen se recorte correctamente */
+    border-radius: 50%; /* Hace que las imágenes sean redondas */
+    transition: transform 0.3s ease, filter 0.3s ease; /* Animación suave */
+    filter: brightness(0.9); /* Ligera opacidad inicial */
+}
+
+/* Hover effect */
+.table-container img:hover {
+    transform: scale(1.1); /* Amplía ligeramente la imagen */
+    filter: brightness(1); /* Mejora la claridad de la imagen */
+}

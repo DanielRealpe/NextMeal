@@ -1,0 +1,223 @@
+/* Aumentamos la especificidad de los selectores */
+.productos-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+/* Header styles */
+.productos-container .productos-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.productos-container .productos-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Filters container */
+.productos-container .productos-filters-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border-radius: 12px;
+}
+
+.productos-container .productos-filters {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+/* Search input específico */
+.productos-container .search-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    width: 300px;
+    max-width: 30%;
+    background-color: #fff;
+}
+
+.productos-container .search-input:focus {
+    outline: none;
+    border-color: #FF5722;
+    box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.1);
+}
+
+/* Botones y acciones */
+.productos-container .productos-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Estilos específicos para botones */
+.productos-container .productos-btn {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+}
+
+.productos-container .btn-primary {
+    background-color: #FF5722;
+    color: white;
+    border: none;
+}
+
+.productos-container .btn-secondary {
+    background-color: rgba(255, 87, 34, 0.1);
+    color: #FF5722;
+    border: none;
+}
+
+.productos-container .productos-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.productos-container .btn-primary:hover {
+    background-color: #F4511E;
+}
+
+.productos-container .btn-secondary:hover {
+    background-color: rgba(255, 87, 34, 0.15);
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+    .productos-container .productos-filters-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .productos-container .productos-filters {
+        width: 100%;
+    }
+
+    .productos-container .search-input {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .productos-container .productos-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .productos-container .productos-btn {
+        width: calc(50% - 5px);
+    }
+}
+
+/* Estilos para el switch */
+.form-switch {
+    padding-left: 2.5em;
+}
+
+.form-switch .form-check-input {
+    width: 2em;
+    margin-left: -2.5em;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
+    background-position: left center;
+    border-radius: 2em;
+    transition: background-position .15s ease-in-out;
+}
+
+.form-switch .form-check-input:checked {
+    background-position: right center;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+}
+
+.form-switch .form-check-input:focus {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%2386b7fe'/%3e%3c/svg%3e");
+}
+
+/* Estilos para el paginador */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.pagination-container li {
+    margin: 0 5px;
+}
+
+.pagination-container li a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.pagination-container li a:hover {
+    background-color: rgba(255, 87, 34, 0.1);
+    color: #FF5722;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-container li.active a {
+    background-color: #FF5722;
+    color: white;
+    border-color: #FF5722;
+}
+
+.pagination-container li.disabled a {
+    color: #ccc;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.pagination-container li:first-child a,
+.pagination-container li:last-child a {
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .pagination-container {
+        flex-wrap: wrap;
+    }
+
+    .pagination-container li {
+        margin: 5px;
+    }
+
+    .pagination-container li a {
+        padding: 6px 10px;
+        min-width: 30px;
+    }
+}

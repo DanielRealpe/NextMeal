@@ -14,6 +14,7 @@ import Cliente from './assets/pages/Cliente/Cliente';
 import Carrito from './assets/pages/Carrito/Carrito';
 import Pedidos from './assets/pages/Pedidos/Pedidos';
 import Categorias from './assets/pages/Categorias/Categorias';
+import Productos from './assets/pages/Productos/Productos';
 import Login from './assets/pages/Acceso/Login';
 import Register from './assets/pages/Acceso/Register';
 import RecoverPassword from './assets/pages/Acceso/Recovery';
@@ -35,6 +36,7 @@ export function App() {
             <Route path="compras" element={<Compras />} />
             <Route path="produccion" element={<Produccion />} />
             <Route path="categorias" element={<Categorias />} />
+            <Route path="productos" element={<Productos />} />
             <Route path="usuarios" element={<Usuarios />} />
             <Route path="configuracion" element={<Configuracion />} />
             <Route path="editProfile" element={<EditProfile />} />

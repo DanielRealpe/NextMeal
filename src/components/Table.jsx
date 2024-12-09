@@ -21,7 +21,7 @@ const CustomTable = ({
                 <thead>
                     <tr>
                         {columns.map((column) => (
-                            <th key={column.key} style={{...column.style, ...(compact ? { width: '1%', whiteSpace: 'nowrap' } : {})}}>
+                            <th key={column.key} style={{ ...column.style, ...(compact ? { width: '1%', whiteSpace: 'nowrap' } : {}) }}>
                                 {column.header}
                             </th>
                         ))}
@@ -38,7 +38,13 @@ const CustomTable = ({
                             >
                                 {columns.map((column) => (
                                     <td key={column.key}>
-                                        {column.key === 'estado' && row.rol !== 'Admin'? (
+                                        {column.key === "img" ? (
+                                            <img
+                                                src={row[column.key]}
+                                                alt={row.alt || "Imagen"}
+                                                style={{ maxWidth: "100px", maxHeight: "100px" }} // Ajusta el tamaño según lo necesario
+                                            />
+                                        ) : column.key === 'estado' && row.rol !== 'Admin' ? (
                                             <div className="d-flex align-items-center justify-content-center">
                                                 <Form.Check
                                                     type="switch"
