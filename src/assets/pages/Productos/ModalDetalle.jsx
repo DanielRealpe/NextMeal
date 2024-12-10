@@ -31,23 +31,19 @@ const ProductModal = ({ show, onClose, product, ingredientes = [] }) => {
                     </Col>
                     <Col md={8}>
                         <div className="role-details-list">
-                            <div className="mb-2">
+                            <div className="mb-4">
                                 <span className="detail-label">Nombre</span>
                                 <span className="detail-value">{product?.nombre}</span>
                             </div>
-                            <div className="mb-2">
-                                <span className="detail-label">Stock</span>
-                                <span className="detail-value">{product?.stock} unidades</span>
-                            </div>
-                            <div className="mb-2">
+                            <div className="mb-4">
                                 <span className="detail-label">Precio</span>
                                 <span className="detail-value">${product?.precio}</span>
                             </div>
-                            <div className="mb-2">
+                            <div className="mb-4">
                                 <span className="detail-label">Estado</span>
                                 <span className="detail-value">{product?.estado}</span>
                             </div>
-                            <div className="mb-2">
+                            <div className="mb-4">
                                 <span className="detail-label">Categoria</span>
                                 <span className="detail-value">{product?.categoria}</span>
                             </div>

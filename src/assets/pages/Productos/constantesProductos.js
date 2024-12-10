@@ -2,14 +2,13 @@ export const columns = [
     { key: 'img', header: 'Imagen' },
     { key: 'nombre', header: 'Nombre' },
     { key: 'categoria', header: 'Categoria' },
-    { key: 'stock', header: 'Stock' },
     { key: 'precio', header: 'Precio' },
     { key: 'estado', header: 'Estado' },
 ]
 
 export const data = [
     {
-        img: 'https://pizzeriacolombianita.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsiZGF0YSI6NTQ1MTg1LCJwdXIiOiJibG9iX2lkIn19--e912b0ec0f92fdccbc55eefb42cff02f96634786/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJwbmciLCJyZXNpemVfdG9fZml0IjpbODAwLDgwMF19LCJwdXIiOiJ2YXJpYXRpb24ifX0=--cef66509c9cdc75663c0eefd9421db1d2ea4fead/hamburguesa-sencilla-a-domicilio-villavicencio.png?locale=es', id: 1, nombre: 'Hamburguesa sencilla', stock: 26, precio: 14000,
+        img: 'https://pizzeriacolombianita.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsiZGF0YSI6NTQ1MTg1LCJwdXIiOiJibG9iX2lkIn19--e912b0ec0f92fdccbc55eefb42cff02f96634786/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJwbmciLCJyZXNpemVfdG9fZml0IjpbODAwLDgwMF19LCJwdXIiOiJ2YXJpYXRpb24ifX0=--cef66509c9cdc75663c0eefd9421db1d2ea4fead/hamburguesa-sencilla-a-domicilio-villavicencio.png?locale=es', id: 1, nombre: 'Hamburguesa sencilla', precio: 14000,
         preparacion: 'Una hamburguesa es una hamburguesa de carne picada asada a la parrilla y colocada entre dos mitades de pan.\
         Se le agregan rodajas de cebolla cruda, lechuga, tocino, mayonesa y otros ingredientes para darle sabor.',
         estado: 'Activo',
@@ -30,7 +29,7 @@ export const data = [
         img: 'https://laparisienne.com.co/cdn/shop/articles/SALCHIPAPA_LA_PARISIENNE_CUADRADA.jpg?v=1682626308',
         id: 2,
         nombre: 'Salchipapas navideñas',
-        stock: 26,
+
         precio: 14000,
         preparacion: 'Cortar las papas en bastones y cortar las salchichas en tiras finas.\
         El perejil en polvo se pone entre las salchichas y las papas para darle sabor.',

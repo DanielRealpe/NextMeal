@@ -95,19 +95,7 @@ const ProductEditModal = ({
                                 />
                             </Form.Group>
                             <Row>
-                                <Col md={3}>
-                                    <Form.Group className="mb-3">
-                                        <Form.Label>Stock</Form.Label>
-                                        <Form.Control
-                                            type="number"
-                                            name="stock"
-                                            value={formData.stock}
-                                            onChange={handleChange}
-                                            required
-                                        />
-                                    </Form.Group>
-                                </Col>
-                                <Col md={5}>
+                                <Col md={8}>
                                     <Form.Group className="mb-3">
                                         <Form.Label>Precio</Form.Label>
                                         <Form.Control

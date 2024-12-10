@@ -20,6 +20,20 @@ function Productos() {
     const [curra, setCurra] = useState(0);
     const categoriesPerPage = 5;
 
+    // New state for versioning
+    const [currentVersion, setCurrentVersion] = useState(1);
+    const [versionStartDate, setVersionStartDate] = useState(new Date());
+    const [versionEndDate, setVersionEndDate] = useState(null);
+    const [showVersionModal, setShowVersionModal] = useState(false);
+    const [versionHistory, setVersionHistory] = useState([
+        {
+            version: 1,
+            startDate: new Date(),
+            endDate: null,
+            data: [...data]
+        }
+    ]);
+
     const handleSearch = () => {
         setDatos(Data);
         setData(Data.filter((item) =>
@@ -115,11 +129,35 @@ function Productos() {
             cancelButtonText: 'Cancelar'
         }).then((result) => {
             if (result.isConfirmed) {
-                setData(Data.map((item) => (item.id === formData.id ? formData : item)));
+                // Update current version's end date
+                const updatedVersionHistory = versionHistory.map((version, index) => {
+                    if (index === versionHistory.length - 1) {
+                        return {
+                            ...version,
+                            endDate: new Date()
+                        };
+                    }
+                    return version;
+                });
+
+                // Create new version
+                const newVersion = {
+                    version: currentVersion + 1,
+                    startDate: new Date(),
+                    endDate: null,
+                    data: Data.map((item) => (item.id === formData.id ? formData : item))
+                };
+
+                setVersionHistory([...updatedVersionHistory, newVersion]);
+                setData(newVersion.data);
+                setCurrentVersion(currentVersion + 1);
+                setVersionStartDate(new Date());
+                setVersionEndDate(null);
+
                 handleCloseModal();
                 Swal.fire('Actualizado', 'El producto ha sido actualizado', 'success');
             }
-        })
+        });
     };
 
     const handleSubmit = (formData) => {
@@ -152,10 +190,42 @@ function Productos() {
         });
     };
 
+    const handleOpenVersionModal = () => {
+        setShowVersionModal(true);
+    };
+
+    const handleSelectVersion = (version) => {
+        const selectedVersion = versionHistory.find(v => v.version === version);
+        if (selectedVersion) {
+            setData(selectedVersion.data);
+            setCurrentVersion(version);
+            setVersionStartDate(selectedVersion.startDate);
+            setVersionEndDate(selectedVersion.endDate);
+            setShowVersionModal(false);
+        }
+    };
+
     return (
         <div className="productos-container">
             <div className="productos-header">
                 <h1 className="productos-title">Gestión de Productos</h1>
+            </div>
+            {/* Versioning Section */}
+            <div className="versioning-container">
+                <div className="version-info">
+                    <span>Versión Actual: {currentVersion}</span>
+                    <span>
+                        Fecha Inicio: {versionStartDate.toLocaleString()}
+                        {versionEndDate && ` - Fecha Fin: ${versionEndDate.toLocaleString()}`}
+                    </span>
+                    <button
+                        onClick={handleOpenVersionModal}
+                        className="version-eye-btn"
+                        title="Ver Versiones"
+                    >
+                        👁️
+                    </button>
+                </div>
             </div>
             <div className="productos-filters-container">
                 <div className="productos-filters">
@@ -174,6 +244,30 @@ function Productos() {
                     <ProductModal show={showDetail} onClose={handleCloseModal} product={formData} ingredientes={formData.ingredientes} />
                 </div>
             </div>
+            {/* Version Selection Modal */}
+            {showVersionModal && (
+                <div className="version-modal">
+                    <div className="version-modal-content">
+                        <h2>Seleccionar Versión</h2>
+                        {versionHistory.map((version) => (
+                            <div key={version.version} className="version-item">
+                                <span>Versión: {version.version} </span>
+                                <span>Inicio: {version.startDate.toLocaleString()}</span>
+                                {version.endDate && <span>Fin: {version.endDate.toLocaleString()}</span>}
+                                <button
+                                    onClick={() => handleSelectVersion(version.version)}
+                                    className="select-version-btn"
+                                >
+                                    Seleccionar
+                                </button>
+                            </div>
+                        ))}
+                        <button onClick={() => setShowVersionModal(false)} className="close-version-modal-btn">
+                            Cerrar
+                        </button>
+                    </div>
+                </div>
+            )}
             <CustomTable data={paginatedData} columns={columns} actions={actions} onStateChange={handleStateChange} />
             <ReactPaginate
                 previousLabel={"Anterior"}
