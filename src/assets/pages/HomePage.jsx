@@ -6,7 +6,8 @@ import {
     CardMedia,
     CardContent,
     Typography,
-    Container
+    Container,
+    Button
 } from '@mui/material';
 import PrimarySearchAppBar from '../../components/Navegation';
 import '../../styles/Home.css';
@@ -83,6 +84,11 @@ const productos = {
 export default function ClientView() {
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
 
+    const handleComprar = (producto) => {
+        console.log(`Comprando ${producto.nombre}`);
+        // Aquí puedes agregar la lógica para agregar al carrito o procesar la compra
+    };
+
     React.useEffect(() => {
         document.body.classList.add('home-page');
         return () => {
@@ -155,6 +161,14 @@ export default function ClientView() {
                                                 <Typography variant="h6" color="primary" sx={{ mt: 2 }}>
                                                     ${producto.precio.toFixed(2)}
                                                 </Typography>
+                                                <Button
+                                                    variant="contained"
+                                                    color="primary"
+                                                    sx={{ mt: 2 }}
+                                                    onClick={() => handleComprar(producto)}
+                                                >
+                                                    Comprar
+                                                </Button>
                                             </CardContent>
                                         </Card>
                                     </Grid>
