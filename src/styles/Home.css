@@ -1,0 +1,48 @@
+/* Estilos adicionales para la vista de cliente */
+.home-page {
+    padding-left: 0 !important;
+}
+
+.home-container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        135deg, 
+        rgba(197, 84, 0, 0.1), 
+        rgba(197, 84, 0, 0.4)
+    ), url('https://c.wallhere.com/photos/bd/e7/french_fries_fried_slices-632793.jpg!d');
+    background-size: cover;
+    background-position: center;
+    filter: blur(2px);
+    opacity: 0.8;
+    z-index: -1;
+}
+
+body {
+    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+}
+
+.MuiCard-root {
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.MuiCard-root:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.MuiCardMedia-root {
+    transition: transform 0.3s ease;
+}
+
+.MuiCardMedia-root:hover {
+    transform: scale(1.05);
+}
+

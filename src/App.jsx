@@ -20,6 +20,7 @@ import Register from './assets/pages/Acceso/Register';
 import RecoverPassword from './assets/pages/Acceso/Recovery';
 import EditProfile from './assets/pages/Acceso/EditProfile';
 import ProtectedRoute from './components/ProtectedRoute';
+import ClientView from './assets/pages/HomePage';
 
 export function App() {
   return (
@@ -44,6 +45,7 @@ export function App() {
           </Route>
         </Route>
         <Route path="*" element={<Navigate to="/login" replace />} />
+        <Route path="/home" element={<ClientView />} />
         <Route path="/register" element={<Register />} />
         <Route path="/recovery" element={<RecoverPassword />} />
       </Routes>
